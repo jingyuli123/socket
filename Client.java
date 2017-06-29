@@ -21,10 +21,11 @@ public class Client {
         InputStreamReader isr = null;
         BufferedReader br = null;
         try {
+			//å®¢æˆ·ç«¯é€šè¿‡new Socket()æ–¹æ³•åˆ›å»ºé€šä¿¡çš„Socketå¯¹è±¡
             socket = new Socket("127.0.0.1",8888);
             output = socket.getOutputStream();
             pw = new PrintWriter(output);
-            pw.write("ÄãºÃ£¬ÎÒÊÇ¿Í»§¶Ë£¡000");
+            pw.write("ä½ å¥½ï¼Œæˆ‘æ˜¯å®¢æˆ·ç«¯ï¼000");
             pw.flush();
             socket.shutdownOutput();
 
@@ -33,7 +34,7 @@ public class Client {
             br = new BufferedReader(isr);
             String info;
             while ((info = br.readLine()) != null) {
-                System.out.println("·şÎñÆ÷¶ËËµ£º" + info);
+                System.out.println("æœåŠ¡å™¨ç«¯è¯´ï¼š" + info);
             }
             socket.shutdownInput();
 

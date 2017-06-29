@@ -24,21 +24,23 @@ public class Server {
         OutputStream output = null;
         PrintWriter pw = null;
         try {
+			//æœåŠ¡å™¨ç«¯é€šè¿‡new ServerSocket()åˆ›å»ºTCPè¿æ¥å¯¹è±¡
             serverSocket = new ServerSocket(8888);
-            System.out.println("×¼±¸Á¬½Ó£¡");
+            System.out.println("å‡†å¤‡è¿æ¥ï¼");
+			//æœåŠ¡å™¨ç«¯é€šè¿‡TCPè¿æ¥å¯¹è±¡è°ƒç”¨accept()æ–¹æ³•åˆ›å»ºé€šä¿¡çš„Socketå¯¹è±¡
             socket = serverSocket.accept();
             in = socket.getInputStream();
             isr= new InputStreamReader(in);
             br = new BufferedReader(isr);
             String info = null;
             while ((info = br.readLine()) != null) {
-                System.out.println("ÎÒÊÇ·şÎñÆ÷¶Ë£¬¿Í»§¶ËËµ£º" + info);
+                System.out.println("æˆ‘æ˜¯æœåŠ¡å™¨ç«¯ï¼Œå®¢æˆ·ç«¯è¯´ï¼š" + info);
             }
             socket.shutdownInput();
 
             output = socket.getOutputStream();
             pw = new PrintWriter(output);
-            pw.write("ÄãºÃ£¬ÎÒÊÇ·şÎñÆ÷¶Ë£¡");
+            pw.write("ä½ å¥½ï¼Œæˆ‘æ˜¯æœåŠ¡å™¨ç«¯ï¼");
             pw.flush();
 			socket.shutdownOutput();
 
